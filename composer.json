@@ -1,0 +1,22 @@
+{
+    "name": "flowpack/entity-usage-databasestorage",
+    "description": "Stores entity usages in the database fow Neos Flow",
+    "license": "MIT",
+    "type": "neos-package",
+    "require": {
+        "flowpack/entity-usage": "^1.0 || dev-main || dev-master"
+    },
+    "provide": {
+        "flowpack/entity-usage-storageimplementation": "1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flowpack\\EntityUsage\\DatabaseStorage\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Flowpack.EntityUsage.DatabaseStorage"
+        }
+    }
+}
