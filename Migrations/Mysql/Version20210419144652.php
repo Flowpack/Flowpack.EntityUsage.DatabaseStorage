@@ -18,7 +18,7 @@ final class Version20210419144652 extends AbstractMigration
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE flowpack_entityusage_databasestorage_domain_model_entityusage (persistence_object_identifier VARCHAR(40) NOT NULL, usageid VARCHAR(255) NOT NULL, entityid VARCHAR(255) NOT NULL, serviceid VARCHAR(255) NOT NULL, metadata LONGTEXT NOT NULL COMMENT \'(DC2Type:flow_json_array)\', INDEX entityserviceid (usageid, entityid, serviceid), INDEX serviceindex (serviceid), INDEX usageindex (usageid), INDEX entityindex (entityid), PRIMARY KEY(persistence_object_identifier)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE IF NOT EXISTS flowpack_entityusage_databasestorage_domain_model_entityusage (persistence_object_identifier VARCHAR(40) NOT NULL, usageid VARCHAR(255) NOT NULL, entityid VARCHAR(255) NOT NULL, serviceid VARCHAR(255) NOT NULL, metadata LONGTEXT NOT NULL COMMENT \'(DC2Type:flow_json_array)\', INDEX entityserviceid (usageid, entityid, serviceid), INDEX serviceindex (serviceid), INDEX usageindex (usageid), INDEX entityindex (entityid), PRIMARY KEY(persistence_object_identifier)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void
